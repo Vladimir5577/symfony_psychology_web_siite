@@ -4,9 +4,21 @@ mv new_project/.* .
 rm -R new_project
 composer require webapp
 
+// ========================================
+1. Copy .env and put credentials inside .env.local
+    $ cp .env .env.local
 
-cp .env .env.local
-put credentials inside .env.local
+2. Install dependencies
+    $ composer install
+
+3. Make sure that database is created and run migrations\
+    $ php bin/console doctrine:migrations:migrate
+
+4. Run fixtures (if need)
+    $ php bin/console doctrine:fixtures:load
+
+5.
+
 
 // =====================================
 composer require easycorp/easyadmin-bundle

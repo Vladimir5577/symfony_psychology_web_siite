@@ -2,6 +2,9 @@
 
 namespace App\Controller\Admin;
 
+use App\Entity\Block;
+use App\Entity\Page;
+use App\Entity\Post;
 use App\Entity\Product;
 use App\Entity\User;
 use EasyCorp\Bundle\EasyAdminBundle\Attribute\AdminDashboard;
@@ -42,5 +45,9 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linkToDashboard('Dashboard', 'fa fa-home');
         yield MenuItem::linkToCrud('Users', 'fas fa-users', User::class);
         yield MenuItem::linkToCrud('Products', 'fas fa-box', Product::class);
+
+        yield MenuItem::linkToCrud('Страницы', 'fa fa-file', Page::class);
+        yield MenuItem::linkToCrud('Блоки', 'fa fa-th-large', Block::class);
+        yield MenuItem::linkToCrud('Посты', 'fa fa-newspaper', Post::class);
     }
 }
