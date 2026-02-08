@@ -20,8 +20,7 @@ class Page
     #[ORM\Column(length: 255)]
     private ?string $title = null;
 
-    #[ORM\Column(length: 255)]
-    #[Gedmo\Slug(fields: ['title'])]
+    #[ORM\Column(length: 255, nullable: true)]
     private ?string $slug = null;
 
     #[ORM\Column(type: 'integer', options: ['default' => 0])]
@@ -76,7 +75,7 @@ class Page
         return $this->slug;
     }
 
-    public function setSlug(string $slug): static
+    public function setSlug(?string $slug): static
     {
         $this->slug = $slug;
 

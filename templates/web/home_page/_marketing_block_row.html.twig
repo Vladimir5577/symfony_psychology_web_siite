@@ -1,9 +1,19 @@
+
+{% if marketing_block_row %}
 <div class="container marketing">
-    <!-- Three columns of text -->
-
-
     <div class="row">
+        {% for post in marketing_block_row.posts %}
         <div class="col-lg-4">
+            {% if post.image %}
+            <img
+                class="bd-placeholder-img rounded-circle"
+                src="{{ ('uploads/images/' ~ post.image) | imagine_filter('medium') }}"
+                alt="{{ post.title }}"
+                width="140"
+                height="140"
+                loading="lazy"
+            >
+            {% else %}
             <svg
                 aria-label="Placeholder"
                 class="bd-placeholder-img rounded-circle"
@@ -20,71 +30,16 @@
                     fill="var(--bs-secondary-color)"
                 ></rect>
             </svg>
-            <h2 class="fw-normal">Heading</h2>
+            {% endif %}
+            <h2 class="fw-normal">{{ post.title }}</h2>
             <p>
-                Some representative placeholder content for the three columns of
-                text below the carousel. This is the first column.
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. A aperiam architecto debitis dignissimos eius eligendi eos, est ipsam laboriosam minima neque obcaecati placeat porro qui quibusdam quis quos soluta voluptas.
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad aperiam architecto deserunt, exercitationem maxime provident quasi ratione repudiandae veniam voluptatem. Corporis est facilis illo ipsum, omnis optio voluptatum. Atque, ut.
+                {{ post.description|default('') }}
             </p>
             <p>
                 <a class="btn btn-secondary" href="#">View details &raquo;</a>
             </p>
         </div>
-        <!-- /.col-lg-4 -->
-        <div class="col-lg-4">
-            <svg
-                aria-label="Placeholder"
-                class="bd-placeholder-img rounded-circle"
-                height="140"
-                preserveAspectRatio="xMidYMid slice"
-                role="img"
-                width="140"
-                xmlns="http://www.w3.org/2000/svg"
-            >
-                <title>Placeholder</title>
-                <rect
-                    width="100%"
-                    height="100%"
-                    fill="var(--bs-secondary-color)"
-                ></rect>
-            </svg>
-            <h2 class="fw-normal">Heading</h2>
-            <p>
-                Another exciting bit of representative placeholder content. This
-                time, we've moved on to the second column.
-            </p>
-            <p>
-                <a class="btn btn-secondary" href="#">View details &raquo;</a>
-            </p>
-        </div>
-        <!-- /.col-lg-4 -->
-        <div class="col-lg-4">
-            <svg
-                aria-label="Placeholder"
-                class="bd-placeholder-img rounded-circle"
-                height="140"
-                preserveAspectRatio="xMidYMid slice"
-                role="img"
-                width="140"
-                xmlns="http://www.w3.org/2000/svg"
-            >
-                <title>Placeholder</title>
-                <rect
-                    width="100%"
-                    height="100%"
-                    fill="var(--bs-secondary-color)"
-                ></rect>
-            </svg>
-            <h2 class="fw-normal">Heading</h2>
-            <p>
-                And lastly this, the third column of representative placeholder
-                content.
-            </p>
-            <p>
-                <a class="btn btn-secondary" href="#">View details &raquo;</a>
-            </p>
-        </div>
-        <!-- /.col-lg-4 -->
+        {% endfor %}
     </div>
 </div>
+{% endif %}

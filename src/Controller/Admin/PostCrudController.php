@@ -7,6 +7,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\BooleanField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\FormField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\TextareaField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
@@ -31,7 +32,7 @@ class PostCrudController extends AbstractCrudController
             FormField::addPanel('Контент'),
 
             TextField::new('title'),
-            TextEditorField::new('description')->hideOnIndex(),
+            TextareaField::new('description')->hideOnIndex(),
 
             ImageField::new('image')
                 ->setUploadDir('public/uploads/images')

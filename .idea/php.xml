@@ -153,6 +153,15 @@
       <path value="$PROJECT_DIR$/vendor/imagine/imagine" />
     </include_path>
   </component>
+  <component name="PhpProjectServersManager">
+    <servers>
+      <server host="0.0.0.0" id="50f5a120-8bc4-42a0-81ae-0b0a37649a7b" name="symfony_app" use_path_mappings="true">
+        <path_mappings>
+          <mapping local-root="$PROJECT_DIR$" remote-root="/var/www/html" />
+        </path_mappings>
+      </server>
+    </servers>
+  </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="8.3">
     <option name="suggestChangeDefaultLanguageLevel" value="false" />
   </component>

@@ -16,6 +16,28 @@ class PageRepository extends ServiceEntityRepository
         parent::__construct($registry, Page::class);
     }
 
+    public function findOneBySlug(string $slug): ?Page
+    {
+        return $this->findOneBy(['slug' => $slug, 'isActive' => true]);
+    }
+
+    public function findOneBySlugWithActiveBlocksAndPosts(string $slug): ?Page
+    {
+        return $this->createQueryBuilder('p')
+            ->leftJoin('p.blocks', 'b', 'WITH', 'b.isActive = true')
+            ->addSelect('b')
+            ->leftJoin('b.posts', 'post', 'WITH', 'post.isActive = true')
+            ->addSelect('post')
+            ->where('p.slug = :slug')
+            ->andWhere('p.isActive = :active')
+            ->setParameter('slug', $slug)
+            ->setParameter('active', true)
+            ->addOrderBy('b.position', 'ASC')
+            ->addOrderBy('post.position', 'ASC')
+            ->getQuery()
+            ->getOneOrNullResult();
+    }
+
     /**
      * @return Page[]
      */

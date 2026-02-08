@@ -11,15 +11,16 @@ class PageFixtures extends Fixture
     public function load(ObjectManager $manager): void
     {
         $pages = [
-            ['title' => 'Home page', 'position' => 0],
-            ['title' => 'Blog page', 'position' => 1],
-            ['title' => 'About', 'position' => 2],
-            ['title' => 'Contacts', 'position' => 3],
+            ['title' => 'Home page', 'slug' => 'home', 'position' => 0],
+            ['title' => 'Blog page', 'slug' => 'blog', 'position' => 1],
+            ['title' => 'AboutPageController', 'slug' => 'about', 'position' => 2],
+            ['title' => 'Contacts', 'slug' => 'contacts', 'position' => 3],
         ];
 
         foreach ($pages as $index => $data) {
             $page = new Page();
             $page->setTitle($data['title']);
+            $page->setSlug($data['slug']);
             $page->setPosition($data['position']);
             $manager->persist($page);
             if ($index === 0) {

@@ -32,8 +32,7 @@ class Block
     #[ORM\Column(length: 255)]
     private ?string $title = null;
 
-    #[ORM\Column(length: 50)]
-    #[Gedmo\Slug(fields: ['title'])]
+    #[ORM\Column(length: 50, nullable: true)]
     private ?string $slug = null;
 
     #[ORM\Column(type: Types::TEXT, nullable: true)]
@@ -95,7 +94,7 @@ class Block
         return $this->slug;
     }
 
-    public function setSlug(string $slug): static
+    public function setSlug(?string $slug): static
     {
         $this->slug = $slug;
 

@@ -8,7 +8,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\BooleanField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\CollectionField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
-use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\TextareaField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 
 class BlockCrudController extends AbstractCrudController
@@ -27,7 +27,7 @@ class BlockCrudController extends AbstractCrudController
                 ->setRequired(true),
             TextField::new('title'),
             TextField::new('slug')->hideOnIndex()->setRequired(false),
-            TextField::new('description'),
+            TextareaField::new('description'),
             BooleanField::new('isActive'),
 
             CollectionField::new('posts')

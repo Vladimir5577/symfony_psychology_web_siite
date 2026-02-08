@@ -23,9 +23,9 @@ liip_imagine:
                     mode: inset
 
         # Large resized version
-#        large:
-#            quality: 90
-#            filters:
-#                thumbnail:
-#                    size: [1200, 900]
-#                    mode: inset
+        large:
+            quality: 90
+            filters:
+                thumbnail:
+                    size: [1200, 900]
+                    mode: inset
