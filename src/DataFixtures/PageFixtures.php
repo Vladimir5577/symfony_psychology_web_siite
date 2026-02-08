@@ -17,11 +17,14 @@ class PageFixtures extends Fixture
             ['title' => 'Contacts', 'position' => 3],
         ];
 
-        foreach ($pages as $data) {
+        foreach ($pages as $index => $data) {
             $page = new Page();
             $page->setTitle($data['title']);
             $page->setPosition($data['position']);
             $manager->persist($page);
+            if ($index === 0) {
+                $this->addReference('page-home', $page);
+            }
         }
 
         $manager->flush();

@@ -12,14 +12,8 @@ final class HomePage extends AbstractController
     #[Route('/', name: 'app_web')]
     public function homePage(ProductRepository $productRepository): Response
     {
-        $products = $productRepository->findBy(
-            ['isActive' => true],
-            ['createdAt' => 'DESC']
-        );
-
         return $this->render('web/home_page/index.html.twig', [
-            'controller_name' => 'WebController',
-            'products' => $products,
+            'active_tab' => 'home_page',
         ]);
     }
 
