@@ -1,0 +1,187 @@
+/*
+ * Цветовые переливы и выделение блоков (светлая тема с фиолетовым свечением)
+ * Акцентный цвет задаётся через CSS-переменные (меняется колорпикером).
+ */
+
+:root {
+    --accent: #7c3aed;
+    --accent-rgb: 124, 58, 237;
+    --accent-light: #8b5cf6;
+    --accent-dark: #6d28d9;
+}
+
+/* ---- Фон страницы: светлый градиент ---- */
+body {
+    background: #eae4f2;
+    background: linear-gradient(
+        180deg,
+        #e0d6ec 0%,
+        #eae4f2 20%,
+        #ede8f4 50%,
+        #eae4f2 80%,
+        #e0d6ec 100%
+    );
+    min-height: 100vh;
+    color: #3d3d3d;
+}
+
+/* Текст и заголовки в контенте */
+.text-body-emphasis,
+h1, h2, .featurette-heading,
+.display-5, .display-4 {
+    color: #1e1c20 !important;
+}
+
+.lead,
+.marketing p,
+.featurette .lead {
+    color: #4a4a4a;
+}
+
+/* ---- Выделение блоков: фон + свечение ---- */
+.block-highlight {
+    background-color: #f5f1fa;
+    border-radius: 1rem;
+    box-shadow:
+        0 0 0 1px rgba(var(--accent-rgb), 0.12),
+        0 0 24px rgba(var(--accent-rgb), 0.15),
+        0 0 48px rgba(var(--accent-rgb), 0.1);
+}
+
+/* Hero-блок (главный блок с колонками) */
+body .container.col-xxl-8 {
+    background-color: #f5f1fa;
+    border-radius: 1rem;
+    box-shadow:
+        0 0 0 1px rgba(var(--accent-rgb), 0.12),
+        0 0 24px rgba(var(--accent-rgb), 0.15),
+        0 0 48px rgba(var(--accent-rgb), 0.1);
+    padding: 2rem !important;
+}
+
+/* Блоки маркетинга (три колонки) */
+.container.marketing .col-lg-4 {
+    background-color: #f5f1fa;
+    border-radius: 1rem;
+    box-shadow:
+        0 0 0 1px rgba(var(--accent-rgb), 0.12),
+        0 0 24px rgba(var(--accent-rgb), 0.15),
+        0 0 48px rgba(var(--accent-rgb), 0.1);
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+/* Featurette-ряды */
+.row.featurette {
+    background-color: #f5f1fa;
+    border-radius: 1rem;
+    box-shadow:
+        0 0 0 1px rgba(var(--accent-rgb), 0.12),
+        0 0 24px rgba(var(--accent-rgb), 0.15),
+        0 0 48px rgba(var(--accent-rgb), 0.1);
+    padding: 2rem;
+    margin-bottom: 2rem;
+}
+
+/* Разделители между блоками */
+.featurette-divider {
+    border-color: rgba(var(--accent-rgb), 0.25);
+    opacity: 0.9;
+}
+
+/* ---- Кнопки в светлой теме ---- */
+/* Вторичная */
+.btn-secondary,
+.btn-outline-secondary {
+    background-color: #e5ddf2 !important;
+    border-color: rgba(var(--accent-rgb), 0.3) !important;
+    color: #3d3559 !important;
+}
+
+.btn-secondary:hover,
+.btn-outline-secondary:hover {
+    background-color: #d9cee8 !important;
+    border-color: rgba(var(--accent-rgb), 0.45) !important;
+    color: #332b4d !important;
+}
+
+/* Основная (акцент) */
+.btn-primary {
+    background: linear-gradient(135deg, var(--accent) 0%, var(--accent-light) 100%) !important;
+    border: none !important;
+    color: #ffffff !important;
+}
+
+.btn-primary:hover {
+    background: linear-gradient(135deg, var(--accent-dark) 0%, var(--accent) 100%) !important;
+    color: #ffffff !important;
+}
+
+/* ---- Навбар и футер в светлой теме ---- */
+.navbar {
+    background-color: rgba(234, 228, 242, 0.94) !important;
+    border-bottom: 1px solid rgba(var(--accent-rgb), 0.28);
+}
+
+.navbar .nav-link {
+    color: #4a4a4a !important;
+}
+
+.navbar .nav-link.active,
+.navbar .nav-link:hover {
+    color: var(--accent-dark) !important;
+}
+
+.navbar-toggler {
+    border-color: rgba(var(--accent-rgb), 0.4);
+}
+
+.navbar-toggler-icon {
+    filter: none;
+}
+
+footer {
+    border-top: 1px solid rgba(var(--accent-rgb), 0.2);
+}
+
+footer .nav-link {
+    color: #4a4a4a !important;
+}
+
+footer .nav-link:hover,
+footer .nav-link.active {
+    color: var(--accent-dark) !important;
+}
+
+.text-body-secondary {
+    color: #5c5c5c !important;
+}
+
+/* Ссылки в контенте */
+a:not(.btn) {
+    color: var(--accent);
+}
+
+a:not(.btn):hover {
+    color: var(--accent-dark);
+}
+
+/* Колорпикер в футере */
+.theme-color-input {
+    width: 2.5rem;
+    height: 1.75rem;
+    padding: 0.15rem;
+    border: 1px solid rgba(var(--accent-rgb), 0.35);
+    border-radius: 0.35rem;
+    cursor: pointer;
+    background: #fff;
+}
+
+.theme-color-input::-webkit-color-swatch-wrapper {
+    padding: 0;
+}
+
+.theme-color-input::-webkit-color-swatch {
+    border: none;
+    border-radius: 0.2rem;
+}
