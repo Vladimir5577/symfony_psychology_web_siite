@@ -5,18 +5,25 @@
 
 {% block body %}
 
-    {% include 'web/home_page/_hero_block.html.twig' %}
+    {# put that style in this page that won't be conflict with another pages #}
+    <link href="/front_end/carousel/carousel.css" rel="stylesheet" />
 
-    {% include 'web/home_page/_marketing_block_row.html.twig' %}
 
-    {% include 'web/home_page/_marketing_block_featurette.html.twig' %}
+    <main>
+
+        {% include 'web/home_page/_hero_block.html.twig' %}
+
+        {% include 'web/home_page/_marketing_block_row.html.twig' %}
+
+        {% include 'web/home_page/_themes_block.html.twig' %}
+
+        {% include 'web/home_page/_marketing_block_featurette.html.twig' %}
+
+        {% include 'web/home_page/_how_it_works_block.html.twig' %}
+
+        {% include 'web/home_page/_cta_block.html.twig' %}
+
+    </main>
 
 
 {% endblock %}
-
-
-{#
-Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-Deserunt dolor molestiae molestias! A ab assumenda cum dolorem ea eius
-facilis id ipsam natus praesentium provident, quaerat repellendus similique sit unde?
-#}

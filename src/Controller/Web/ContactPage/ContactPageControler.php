@@ -14,7 +14,7 @@ final class ContactPageControler extends AbstractController
     {
 
         return $this->render('web/contacts_page/index.html.twig', [
-            'active_tab' => 'contact_page',
+            'active_tab' => 'contacts_page',
         ]);
     }
 }

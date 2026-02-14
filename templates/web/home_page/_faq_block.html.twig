@@ -1,0 +1,26 @@
+{% if home_faq and home_faq.posts|length > 0 %}
+<div class="container px-4 py-5">
+    <h2 class="pb-2 border-bottom text-center text-body-emphasis mb-4">Частые вопросы</h2>
+    <div class="row justify-content-center">
+        <div class="col-lg-8">
+            <div class="accordion" id="homeFaqAccordion">
+                {% for post in home_faq.posts %}
+                <div class="accordion-item">
+                    <h3 class="accordion-header">
+                        <button class="accordion-button {{ loop.first ? '' : 'collapsed' }}" type="button" data-bs-toggle="collapse" data-bs-target="#faq-{{ loop.index }}" aria-expanded="{{ loop.first ? 'true' : 'false' }}" aria-controls="faq-{{ loop.index }}">
+                            {{ post.title }}
+                        </button>
+                    </h3>
+                    <div id="faq-{{ loop.index }}" class="accordion-collapse collapse {{ loop.first ? 'show' : '' }}" data-bs-parent="#homeFaqAccordion">
+                        <div class="accordion-body text-body-secondary">
+                            {{ post.description|default('') }}
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+<hr class="featurette-divider" />
+{% endif %}

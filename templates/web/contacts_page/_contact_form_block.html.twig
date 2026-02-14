@@ -1,0 +1,35 @@
+{# Contact form block #}
+<div class="container col-xl-10 col-xxl-8 px-4 py-5">
+    <h2 class="pb-2 border-bottom text-center mb-4">Request a Callback</h2>
+    <div class="row align-items-center g-lg-5 py-4">
+        <div class="col-lg-7 text-center text-lg-start">
+            <h3 class="fw-bold lh-1 text-body-emphasis mb-3">Share your details</h3>
+            <p class="col-lg-10">
+                Fill in the form and I'll call you back at a convenient time to discuss how I can help.
+                All information is kept strictly confidential.
+            </p>
+        </div>
+        <div class="col-md-10 mx-auto col-lg-5">
+            <form class="p-4 p-md-5 border rounded-3 bg-body-tertiary" action="#" method="post">
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="contactName" name="name" placeholder="Your name" required>
+                    <label for="contactName">Your name</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="tel" class="form-control" id="contactPhone" name="phone" placeholder="+1 234 567 890">
+                    <label for="contactPhone">Phone</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="email" class="form-control" id="contactEmail" name="email" placeholder="email@example.com" required>
+                    <label for="contactEmail">Email</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <textarea class="form-control" id="contactMessage" name="message" placeholder="Brief message (optional)" style="height: 100px"></textarea>
+                    <label for="contactMessage">Brief message (optional)</label>
+                </div>
+                <button class="w-100 btn btn-lg btn-primary" type="submit">Send request</button>
+            </form>
+        </div>
+    </div>
+</div>
+<hr class="featurette-divider" />

@@ -18,12 +18,18 @@ final class HomePageController extends AbstractController
         $heroBlock = null;
         $marketingBlockRow = null;
         $marketingBlockFeaturette = null;
+        $homeThemes = null;
+        $homeHowItWorks = null;
+        $homeCta = null;
 
         if ($blocks = $pageData?->getBlocks()) {
             foreach ($blocks as $block) {
-                if ($block->getSlug() == 'hero') $heroBlock = $block;
-                if ($block->getSlug() == 'marketing_block_row') $marketingBlockRow = $block;
-                if ($block->getSlug() == 'marketing_block_featurette') $marketingBlockFeaturette = $block;
+                if ($block->getSlug() === 'hero') $heroBlock = $block;
+                if ($block->getSlug() === 'marketing_block_row') $marketingBlockRow = $block;
+                if ($block->getSlug() === 'marketing_block_featurette') $marketingBlockFeaturette = $block;
+                if ($block->getSlug() === 'home_themes') $homeThemes = $block;
+                if ($block->getSlug() === 'home_how_it_works') $homeHowItWorks = $block;
+                if ($block->getSlug() === 'home_cta') $homeCta = $block;
             }
         }
 
@@ -32,6 +38,9 @@ final class HomePageController extends AbstractController
             'hero_block' => $heroBlock,
             'marketing_block_row' => $marketingBlockRow,
             'marketing_block_featurette' => $marketingBlockFeaturette,
+            'home_themes' => $homeThemes,
+            'home_how_it_works' => $homeHowItWorks,
+            'home_cta' => $homeCta,
         ]);
     }
 

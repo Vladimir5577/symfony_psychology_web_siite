@@ -1,0 +1,15 @@
+{# About page — миссия / история #}
+{% if about_mission and about_mission.posts|length > 0 %}
+    {% set post = about_mission.posts|first %}
+    <div class="container px-4 py-4">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <h2 class="pb-2 border-bottom text-body-emphasis">{{ post.title }}</h2>
+                <p class="lead">
+                    {{ post.description|default('') }}
+                </p>
+            </div>
+        </div>
+    </div>
+    <hr class="featurette-divider" />
+{% endif %}

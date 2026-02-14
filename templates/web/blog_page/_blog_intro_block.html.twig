@@ -1,0 +1,12 @@
+{% if blog_intro and blog_intro.posts|length > 0 %}
+{% set first = blog_intro.posts|first %}
+<div class="container px-4 py-3">
+    <div class="row justify-content-center">
+        <div class="col-lg-8">
+            <h2 class="h5 text-body-emphasis mb-2">{{ first.title }}</h2>
+            <p class="text-body-secondary mb-0">{{ first.description|default('') }}</p>
+        </div>
+    </div>
+</div>
+<hr class="featurette-divider" />
+{% endif %}

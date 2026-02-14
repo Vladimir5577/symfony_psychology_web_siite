@@ -1,0 +1,14 @@
+{# About page — почему мне можно доверять (образование, опыт) #}
+{% if about_reassurance and about_reassurance.posts|length > 0 %}
+    {% set post = about_reassurance.posts|first %}
+    <div class="container px-4 py-4">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <h2 class="pb-2 border-bottom text-body-emphasis">{{ post.title }}</h2>
+                <p class="lead">
+                    {{ post.description|default('') }}
+                </p>
+            </div>
+        </div>
+    </div>
+{% endif %}

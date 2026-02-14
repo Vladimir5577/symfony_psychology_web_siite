@@ -1,0 +1,41 @@
+{% if pricing_rates and pricing_rates.posts|length > 0 %}
+
+    <style>
+        .container_pricing {
+            max-width: 960px;
+        }
+    </style>
+
+
+<div class="container container_pricing py-3">
+    <main>
+        <div class="row row-cols-1 row-cols-md-3 mb-3 text-center">
+            {% for post in pricing_rates.posts %}
+            {% set lines = (post.description|default(''))|split("\n") %}
+            {% set priceLine = lines|first %}
+            {% set listLines = lines|slice(1) %}
+            <div class="col">
+                <div class="card mb-4 rounded-3 shadow-sm {{ loop.index == 2 ? 'border-primary' : '' }}">
+                    <div class="card-header py-3 {{ loop.index == 2 ? 'text-bg-primary border-primary' : '' }}">
+                        <h4 class="my-0 fw-normal">{{ post.title }}</h4>
+                    </div>
+                    <div class="card-body">
+                        <h1 class="card-title pricing-card-title">{{ priceLine }}</h1>
+                        {% if listLines|length > 0 %}
+                        <ul class="list-unstyled mt-3 mb-4">
+                            {% for line in listLines %}
+                            {% if line|trim %}
+                            <li>{{ line }}</li>
+                            {% endif %}
+                            {% endfor %}
+                        </ul>
+                        {% endif %}
+                        <a href="{{ path('app_contacts') }}" class="w-100 btn btn-lg {{ loop.index == 2 ? 'btn-primary' : 'btn-outline-primary' }}">Записаться</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </main>
+</div>
+{% endif %}

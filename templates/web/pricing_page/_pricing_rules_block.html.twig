@@ -1,0 +1,18 @@
+{% if pricing_rules and pricing_rules.posts|length > 0 %}
+<div class="container px-4 py-5">
+    <h2 class="pb-2 border-bottom text-body-emphasis mb-4">Оплата и отмена</h2>
+    <div class="row g-4">
+        {% for post in pricing_rules.posts %}
+        <div class="col-md-6">
+            <div class="card h-100 border-0 shadow-sm">
+                <div class="card-body">
+                    <h3 class="card-title h6 text-body-emphasis">{{ post.title }}</h3>
+                    <p class="card-text text-body-secondary small mb-0">{{ post.description|default('') }}</p>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+<hr class="featurette-divider" />
+{% endif %}

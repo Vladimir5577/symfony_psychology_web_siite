@@ -1,0 +1,11 @@
+{% extends 'web/web_base.html.twig' %}
+
+{% block title %}Блог — Hanna Psycholog{% endblock %}
+
+{% block body %}
+<main class="pt-5">
+    {% include 'web/blog_page/_blog_hero_block.html.twig' %}
+    {% include 'web/blog_page/_blog_intro_block.html.twig' %}
+    {% include 'web/blog_page/_blog_posts_block.html.twig' %}
+</main>
+{% endblock %}

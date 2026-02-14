@@ -27,4 +27,11 @@ final class ProductController extends AbstractController
             'product' => $product,
         ]);
     }
+
+    #[Route('/test', name: 'app_test')]
+    public function test(): Response
+    {
+        return $this->render('web/test.html.twig', [
+        ]);
+    }
 }

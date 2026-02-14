@@ -1,5 +1,8 @@
-{% if marketing_block_featurette %}
+{% if marketing_block_featurette and marketing_block_featurette.posts|length > 0 %}
+<!-- Marketing featurettes
+ ================================================== -->
 <div class="container marketing">
+    <!-- START THE FEATURETTES -->
     <hr class="featurette-divider" />
     {% for post in marketing_block_featurette.posts %}
     <div class="row featurette">
@@ -15,11 +18,12 @@
             {% if post.image %}
             <img
                 class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto"
-                src="{{ ('uploads/images/' ~ post.image) | imagine_filter('medium') }}"
+                src="{{ ('uploads/images/' ~ post.image) | imagine_filter('large') }}"
                 alt="{{ post.title }}"
                 width="500"
                 height="500"
                 loading="lazy"
+                style="object-fit: cover;"
             >
             {% else %}
             <svg
@@ -46,5 +50,7 @@
     </div>
     <hr class="featurette-divider" />
     {% endfor %}
+    <!-- /END THE FEATURETTES -->
 </div>
+<!-- /.container -->
 {% endif %}

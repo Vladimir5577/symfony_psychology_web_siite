@@ -1,0 +1,11 @@
+{% if pricing_hero and pricing_hero.posts|length > 0 %}
+{% set first = pricing_hero.posts|first %}
+<div class="container py-3">
+    <header>
+        <div class="pricing-header p-3 pb-md-4 mx-auto text-center">
+            <h1 class="display-4 fw-normal text-body-emphasis">{{ first.title }}</h1>
+            <p class="fs-5 text-body-secondary">{{ first.description|default('') }}</p>
+        </div>
+    </header>
+</div>
+{% endif %}

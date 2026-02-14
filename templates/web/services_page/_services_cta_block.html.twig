@@ -1,0 +1,12 @@
+{% if services_cta and services_cta.posts|length > 0 %}
+{% set first = services_cta.posts|first %}
+<div class="container px-4 py-5 my-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-8 text-center">
+            <h2 class="h4 text-body-emphasis mb-3">{{ first.title }}</h2>
+            <p class="text-body-secondary mb-4">{{ first.description|default('') }}</p>
+            <a class="btn btn-primary" href="{{ path('app_contacts') }}">Контакты</a>
+        </div>
+    </div>
+</div>
+{% endif %}

@@ -1,0 +1,24 @@
+{% if faq_items and faq_items.posts|length > 0 %}
+<div class="container px-4 py-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-8">
+            <div class="accordion" id="faqAccordion">
+                {% for post in faq_items.posts %}
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button {{ loop.first ? '' : 'collapsed' }}" type="button" data-bs-toggle="collapse" data-bs-target="#faq-{{ loop.index }}" aria-expanded="{{ loop.first ? 'true' : 'false' }}" aria-controls="faq-{{ loop.index }}">
+                            {{ post.title }}
+                        </button>
+                    </h2>
+                    <div id="faq-{{ loop.index }}" class="accordion-collapse collapse {{ loop.first ? 'show' : '' }}" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body text-body-secondary">
+                            {{ post.description|default('') }}
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endif %}
