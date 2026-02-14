@@ -57,8 +57,6 @@ services:
       ADMINER_DEFAULT_SERVER: db
     volumes:
       - ./docker_env/adminer/adminer_dark.css:/var/www/html/adminer-dark.css:ro
-    depends_on:
-      - db
     networks:
       - app-net
     restart: unless-stopped
