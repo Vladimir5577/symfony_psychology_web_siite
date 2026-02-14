@@ -1,10 +1,10 @@
 # symfony_psychology_web_siite
 
 ### Install in docker:
-1. Copy .env.example to .env (optionally put you credentials inside).
+1. Copy .env.example to .env and add credentials.
 ```bash
-$ cp .env .env.local
-````
+$ cp .env.example .env
+```
 
 2. Build docker --- only for the first time
 ```bash
@@ -41,10 +41,12 @@ $ php bin/console doctrine:migrations:migrate
 $ php bin/console doctrine:fixtures:load
 ```
 
-9. Give permissions to public/uploads and media folder
+9. Give permissions to public/uploads and media folder (run inside the php container, e.g. after step 4).  
+   Owner `www-data` lets the web server write uploads; if your image uses another user (e.g. nginx), replace it.
 ```bash
-$ sudo chmod -R 775 public/uploads
-$ sudo chmod -R 775 public/media
+$ chown -R www-data:www-data public/uploads public/media
+$ chmod -R 775 public/uploads
+$ chmod -R 775 public/media
 ```
 
 ## Xdebug
