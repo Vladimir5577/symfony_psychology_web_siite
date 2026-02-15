@@ -192,6 +192,7 @@ class HomePageFixtures extends Fixture
                 $post->setTitle($postData['title']);
                 $post->setDescription($postData['description']);
                 $post->setPosition($postData['position']);
+                $post->setImage($postData['image'] ?? null);
                 $post->setIsActive(true);
                 $manager->persist($post);
             }

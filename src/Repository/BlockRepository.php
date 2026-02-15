@@ -16,6 +16,20 @@ class BlockRepository extends ServiceEntityRepository
         parent::__construct($registry, Block::class);
     }
 
+    public function findOneByPageSlugAndBlockSlug(string $pageSlug, string $blockSlug): ?Block
+    {
+        return $this->createQueryBuilder('b')
+            ->innerJoin('b.page', 'p')
+            ->andWhere('p.slug = :pageSlug')
+            ->andWhere('b.slug = :blockSlug')
+            ->andWhere('b.isActive = :active')
+            ->setParameter('pageSlug', $pageSlug)
+            ->setParameter('blockSlug', $blockSlug)
+            ->setParameter('active', true)
+            ->getQuery()
+            ->getOneOrNullResult();
+    }
+
     //    /**
     //     * @return Block[] Returns an array of Block objects
     //     */

@@ -1,12 +1,17 @@
-{# About page hero — заголовок и вступление #}
+{# About page hero — заголовок и вступление (responsive left-aligned hero with image) #}
 {% if about_hero and about_hero.posts|length > 0 %}
     {% set first = about_hero.posts|first %}
-    <div class="px-4 py-5 my-5 text-center">
-        <h1 class="display-5 fw-bold text-body-emphasis">{{ first.title }}</h1>
-        <div class="col-lg-6 mx-auto">
-            <p class="lead mb-4">
-                {{ first.description|default('') }}
-            </p>
+    <div class="container col-xxl-8 px-4 py-5">
+        <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
+            {% if first.image %}
+            <div class="col-10 col-sm-8 col-lg-6">
+                <img src="{{ ('uploads/images/' ~ first.image) | imagine_filter('large') }}" alt="{{ first.title|e }}" class="d-block mx-lg-auto img-fluid rounded-3" width="700" height="500" loading="lazy" style="object-fit: cover;">
+            </div>
+            {% endif %}
+            <div class="col-lg-6">
+                <h1 class="display-5 fw-bold text-body-emphasis lh-1 mb-3">{{ first.title }}</h1>
+                <p class="lead">{{ first.description|default('') }}</p>
+            </div>
         </div>
     </div>
 {% endif %}

@@ -31,6 +31,7 @@ class AboutPageFixtures extends Fixture
                         'title' => 'Обо мне',
                         'description' => 'Я психолог, работаю со взрослыми в формате индивидуального консультирования. Помогаю разбираться в тревоге, стрессе, отношениях и кризисных состояниях. В работе опираюсь на доказательные подходы и принципы профессиональной этики: конфиденциальность, уважение к вашему выбору и темпу, отсутствие осуждения.',
                         'position' => 0,
+                        'image' => null,
                     ],
                 ],
             ],
@@ -129,6 +130,7 @@ class AboutPageFixtures extends Fixture
                 $post->setTitle($postData['title']);
                 $post->setDescription($postData['description']);
                 $post->setPosition($postData['position']);
+                $post->setImage($postData['image'] ?? null);
                 $post->setIsActive(true);
                 $manager->persist($post);
             }

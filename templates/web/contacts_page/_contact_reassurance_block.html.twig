@@ -1,14 +1,11 @@
-{# Reassurance block — psychology context, featurette-style #}
+{# Reassurance block — psychology context (data from Block contact_reassurance_block) #}
+{% if contact_reassurance_block and contact_reassurance_block.posts|length > 0 %}
+{% set post = contact_reassurance_block.posts|first %}
 <div class="container marketing">
     <div class="row featurette">
         <div class="col-md-7">
-            <h2 class="featurette-heading fw-normal lh-1">
-                Confidential &amp; Safe
-            </h2>
-            <p class="lead">
-                Your privacy matters. Everything you share in our sessions — and in this form — is strictly confidential.
-                I'm committed to creating a safe, non-judgmental space for you to explore and grow.
-            </p>
+            <h2 class="featurette-heading fw-normal lh-1">{{ post.title }}</h2>
+            <p class="lead">{{ post.description|default('') }}</p>
         </div>
         <div class="col-md-5">
             <svg
@@ -27,3 +24,4 @@
         </div>
     </div>
 </div>
+{% endif %}
