@@ -41,6 +41,12 @@ class ConstactFixtures extends Fixture
                 'contactValue' => 'https://t.me',
                 'description' => null,
             ],
+            [
+                'name' => 'WhatsApp',
+                'slug' => 'whatsapp',
+                'contactValue' => 'https://wa.me/79001234567',
+                'description' => null,
+            ],
         ];
 
         foreach ($contactsConfig as $data) {
