@@ -127,7 +127,7 @@ class BlogPageFixtures extends Fixture
                 $post->setTitle($postData['title']);
                 $post->setDescription($postData['description']);
                 $post->setPosition($postData['position']);
-                $post->setImage($postData['image'] ?? null);
+                $post->setImage($postData['image'] ?? 'default_psychology_1.jpg');
                 $post->setIsActive(true);
                 $manager->persist($post);
             }

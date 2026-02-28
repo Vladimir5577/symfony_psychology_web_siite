@@ -23,7 +23,10 @@
 ###< symfony/asset-mapper ###
 
 /public/uploads/*
-!/public/uploads/.gitkeep
+!/public/uploads/images/
+/public/uploads/images/*
+!/public/uploads/images/default_psychology_1.jpg
+!/public/uploads/images/default_psychology_2.jpg
 
 ###> liip/imagine-bundle ###
 /public/media/*

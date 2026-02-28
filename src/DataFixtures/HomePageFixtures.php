@@ -31,6 +31,7 @@ class HomePageFixtures extends Fixture
                         'title' => 'Психологическое консультирование в атмосфере принятия и доверия',
                         'description' => 'Индивидуальные консультации для взрослых. Работаю с тревогой, стрессом, отношениями и кризисными состояниями. Опираюсь на доказательные методы и принципы профессиональной этики.',
                         'position' => 0,
+                        'image' => 'default_psychology_1.jpg',
                     ],
                     [
                         'title' => 'Ваш запрос — в центре внимания',
@@ -202,7 +203,7 @@ class HomePageFixtures extends Fixture
                 $post->setTitle($postData['title']);
                 $post->setDescription($postData['description']);
                 $post->setPosition($postData['position']);
-                $post->setImage($postData['image'] ?? null);
+                $post->setImage($postData['image'] ?? 'default_psychology_1.jpg');
                 $post->setIsActive(true);
                 $manager->persist($post);
             }

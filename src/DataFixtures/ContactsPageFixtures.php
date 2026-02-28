@@ -85,6 +85,8 @@ class ContactsPageFixtures extends Fixture
             ],
         ];
 
+        $images = ['default_psychology_1.jpg', 'default_psychology_2.jpg'];
+
         foreach ($blocksConfig as $data) {
             $block = new Block();
             $block->setPage($page);
@@ -101,6 +103,7 @@ class ContactsPageFixtures extends Fixture
                 $post->setTitle($postData['title']);
                 $post->setDescription($postData['description']);
                 $post->setPosition($postData['position']);
+                $post->setImage($postData['image'] ?? 'default_psychology_1.jpg');
                 $post->setIsActive(true);
                 $manager->persist($post);
             }
